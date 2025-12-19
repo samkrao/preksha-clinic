@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preksha Homoeopathy Clinic</title>
+    <link rel="icon" href=
+    "images/LOGO.png" 
+              type="image/x-icon" />
+    <link
+    rel="stylesheet"
+    type="text/css"
+    charset="UTF-8"
+    href="css/common.css"
+/>
+
+</head>
+<body>
+    <!-- app for render components -->
+    <div id="root"></div>
+    <script defer src="scripts/module.js" type="module"></script>
+    <script defer src = 'scripts/custom.js' language="javascript"></script>
+    <script async src="scripts/polyfill.min.js" type="text/javascript"></script>
+    <script async src="https://polyfill.io/v3/polyfill.min.js?features=default%2Cdom4%2Ces2015%2Ces2016%2Ces2017%2Ces2018%2Ces2019%2Ces2020%2Ces2021%2Ces2022%2Ces5%2Ces6%2Ces7%2CAbortController%2CAggregateError%2CArray.from%2CArray.isArray%2CArray.of%2CArray.prototype.%40%40iterator%2CArray.prototype.at%2CArray.prototype.copyWithin%2CArray.prototype.entries%2CArray.prototype.every%2CCustomEvent%2CCSS.supports%2CDOMRect%2C%7Ehtml5-elements%2Csmoothscroll%2C%7Eviewport" ></script>
+</body>
+<script type="module">
+    import {someVar, someFunc} from './scripts/module.js';
+
+    // "Some data for output"
+    console.log(someVar + someFunc());
+</script>
+</html>

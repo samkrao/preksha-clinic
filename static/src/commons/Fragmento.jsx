@@ -1,0 +1,8 @@
+const Columns = () => {
+    return (
+      <>
+        <td>Column 1</td>
+        <td>Column 2</td>
+      </>
+    );
+  }
