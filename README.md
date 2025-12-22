@@ -1,65 +1,66 @@
-# Preksha Clinic — Fullstack Starter (React + Vite + Spring Boot + DataNucleus JPA + SQLite)
+# Healthcare Clinic Application
 
-This template includes:
-- **frontend/**: React (Vite) SPA: Home, About Us, Contact Us, Register, Login, Take Appointment
-- **backend/**: Spring Boot REST API using **DataNucleus JPA** with **SQLite** database, and **JWT** auth.
+Complete full-stack clinic management system.
 
-## Prerequisites
-- Java 17+
-- Maven 3.9+
-- Node.js 18+ (or 20+)
+## Quick Start
 
----
-
-## 1) Run backend
 ```bash
-cd backend
-mvn -q clean spring-boot:run
+# Start everything
+./start-all.sh
+
+# Stop everything
+./stop-all.sh
 ```
 
-Backend: `http://localhost:8080`
+## Access
 
-SQLite DB file will be created at: `backend/preksha.db`
+- Frontend: http://localhost:5173
+- Backend:  http://localhost:8080
+- H2 Console: http://localhost:8080/h2-console
 
----
+## Features
 
-## 2) Run frontend (Vite)
+✅ User Registration & Login
+✅ Book Appointments
+✅ Contact Form
+✅ Real-time updates
+✅ Responsive design
+
+## Tech Stack
+
+**Frontend:** React 19.2, Vite, Tailwind CSS
+**Backend:** Spring Boot, EclipseLink, JWT
+**Database:** H2 (dev) / PostgreSQL (prod)
+
+## Development
+
 ```bash
+# Backend only
+cd backend
+mvn spring-boot:run
+
+# Frontend only
 cd frontend
-npm install
 npm run dev
 ```
 
-Frontend: `http://localhost:5173`
+## Configuration
 
-Vite dev server proxies `/api` requests to `http://localhost:8080` (see `frontend/vite.config.js`).
+Edit `backend/src/main/resources/application.properties` for database settings.
 
----
+Default uses H2 in-memory database (no setup needed).
 
-## APIs
-### Auth
-- `POST /api/auth/register`
-- `POST /api/auth/login`
-- `GET  /api/me` (Bearer token)
+## Testing
 
-### Appointments
-- `POST /api/appointments` (Bearer token) — create appointment
-- `GET  /api/appointments/mine` (Bearer token) — list your appointments
+Register a new user, login, and book an appointment!
 
----
+## Real-time Notifications
 
-## Production build
-### Frontend
-```bash
-cd frontend
-npm run build
-```
+When you book an appointment while logged in, you'll receive an instant notification via WebSocket/SSE. The notification will appear in the top-right corner of the screen.
 
-### Backend jar
-```bash
-cd backend
-mvn -q clean package
-java -jar target/preksha-clinic-backend-0.0.1-SNAPSHOT.jar
-```
+**To test:**
+1. Register and login
+2. Book an appointment
+3. Watch for real-time notification confirming your appointment
 
-> For production, change the JWT secret in `backend/src/main/resources/application.yml`.
+The frontend automatically connects to the Atmosphere notification stream when you login.
